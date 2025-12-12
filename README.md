@@ -1,59 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧾 Sistem Pendukung Keputusan Penilaian Kinerja Karyawan  
+## Metode **AHP (Analytical Hierarchy Process)** • Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Pendukung Keputusan (SPK) ini dibangun menggunakan **Laravel** dan menerapkan metode **AHP (Analytical Hierarchy Process)** untuk membantu perusahaan menilai kinerja karyawan secara objektif, terukur, dan konsisten. Dengan metode AHP, sistem menghasilkan bobot kriteria berdasarkan perbandingan berpasangan sehingga menghasilkan keputusan yang lebih akurat.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📌 Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### **1. Manajemen Karyawan**
+- Tambah, edit, dan hapus data karyawan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **2. Manajemen Kriteria**
+- Menambahkan kriteria penilaian.
+- Input perbandingan berpasangan (pairwise comparison).
+- Menampilkan bobot kriteria hasil perhitungan AHP.
+- Validasi nilai konsistensi (CR).
 
-## Learning Laravel
+### **3. Perhitungan AHP Otomatis**
+- Membentuk matriks perbandingan.
+- Menghitung eigen vector (bobot kriteria).
+- Menghitung nilai CI & CR.
+- Memberikan peringatan jika CR > 0.1.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### **4. Penilaian Karyawan**
+- Admin memasukkan nilai setiap karyawan sesuai bobot kriteria.
+- Sistem menghitung nilai akhir berdasarkan bobot AHP.
+- Menampilkan ranking karyawan.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### **5. Dashboard**
+- Menampilkan ringkasan penilaian.
+- Menampilkan grafik perbandingan kinerja.
 
-## Laravel Sponsors
+### **6. Periode Penilaian**
+- Mengelola periode aktif.
+- Melihat riwayat hasil per periode.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### **7. Laporan**
+- Export hasil penilaian ke PDF.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🧠 Tentang Metode AHP
 
-## Contributing
+Metode AHP meliputi langkah-langkah berikut:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Menyusun hirarki masalah.
+2. Membuat matriks perbandingan berpasangan.
+3. Menghitung eigen vector dan bobot kriteria.
+4. Menghitung konsistensi melalui:
+   - **Consistency Index (CI)**
+   - **Consistency Ratio (CR)**
+5. CR ≤ 0.1 → keputusan konsisten.
 
-## Code of Conduct
+Metode AHP unggul karena:
+- Terstruktur (hierarki).
+- Menghasilkan bobot objektif.
+- Dapat memeriksa konsistensi penilaian.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🛠️ Teknologi yang Digunakan
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Laravel** – Framework
+- **MySQL** – Database
+- **Blade & Bootstrap** – UI
+- **Chart.js** – Grafik
+- **SweetAlert, Datatables** – UI Interaktif
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📂 Struktur Folder Utama
+
+```plaintext
+├── app/
+│   ├── Http/Controllers/
+│   ├── Models/
+│   ├── Services/AhpService.php
+│   ├── Services/SAWService.php
+├── resources/views/
+│   ├── dashboard.blade.php
+│   ├── karyawan
+│   ├── kriteria
+│   ├── ahp/
+│   ├── penilaian/
+├── database/
+│   ├── migrations/
+│   ├── seeders/
+└── routes/
+    └── web.php
